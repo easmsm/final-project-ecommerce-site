@@ -5,5 +5,7 @@ import "popper.js/dist/umd/popper";
 import "bootstrap/dist/js/bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
-var element = <div>Hello World!</div>;
-ReactDom.render(element, document.getElementById("root"));
+import NavBar from "./App";
+import "./index.css";
+
+ReactDom.render(<NavBar />, document.getElementById("root"));
