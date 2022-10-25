@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Product from "./Product";
+// import App from "./App";
+
 
 export default class ShoppingCart extends Component
 {
@@ -22,7 +24,13 @@ export default class ShoppingCart extends Component
             <div className="row">
                 {this.state.products.map((prod) => {
                     return (
-                    <Product key={prod.id} product={prod}>
+                    <Product 
+                    key={prod.id} 
+                    product={prod}
+                    onIncrement={this.handleIncrement}
+                    onDecrement={this.handleDecrement}
+                    >
+
                     <button className="btn btn-primary">Buy Now</button>
                     </Product>
                 );
@@ -36,8 +44,28 @@ export default class ShoppingCart extends Component
 
     //increment for the + and - buttons
 
-    handleIncrement = () => {
+    handleIncrement = (product, maxValue) => {
+        //get index of the selected product
+        let allProducts = [...this.state.products];
+        let index = allProducts.indexOf(product);
+        
+        if(allProducts[index].quantity<=maxValue){
+            allProducts[index].quantity++;
+            //update the state of the current component
+            this.setState({products:allProducts});
+        }
+    };
 
+    handleDecrement = (product, minValue) => {
+        //get index of the selected product
+        let allProducts = [...this.state.products];
+        let index = allProducts.indexOf(product);
+
+        if(allProducts[index].quantity>minValue){
+            allProducts[index].quantity--;
+            //update the state of the current component
+            this.setState({products:allProducts});
+        }
     };
 }
 

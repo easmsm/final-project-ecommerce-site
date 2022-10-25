@@ -21,18 +21,25 @@ export default class Product extends Component
             </div>
         {/* card body ends here */}
         {/* this adds the button child component from shoppingcart.jsx to the card */}
-            <div className="card-footer">
         {/* add/remove number of purchase items */}
+
+            <div className="card-footer">
                 <div className="float-left">
                 <span className="badge">{this.state.product.quantity}</span>
+
                 <div className="btn-group">
-                    <button className="btn btn-outline-success">+</button>
-                    <button className="btn btn-outline-success">-</button>
+                    <button
+                    className="btn btn-outline-success"
+                    onClick={() => {this.props.onIncrement(this.state.product);}}>+</button>
+
+                    <button 
+                    className="btn btn-outline-success"
+                    onClick={() => {this.props.onDecrement(this.state.product);}}>-</button>
                 </div>
             </div>
+        {/* float left ends here */}
 
-                <div className="float-right">
-                {this.props.children}</div>
+                <div className="float-right">{this.props.children}</div>
                 </div>
         {/* card footer ends here */}
         </div>

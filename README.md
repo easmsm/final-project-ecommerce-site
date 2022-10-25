@@ -10,6 +10,8 @@ Check out this error: https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide
 npm install bootstrap jquery popper
 might need to install popper w/ npm install @popperjs/core --save
 
+npm install font-awesome --save
+
 custom name styles (maybe to signify dog/cat at 2:20)
 
 -want to add an inactive option for customers, allow to delete customers

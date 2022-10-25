@@ -12,3 +12,5 @@ export default class App extends Component {
     }
 }
 
+// trying to solve error with components not populating
+// export default App;
