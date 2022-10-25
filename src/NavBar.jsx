@@ -24,6 +24,10 @@ class NavBar extends Component{
                     <li className="nav-item">
                         <a className="nav-link" href="/#">Products</a>
                     </li>
+
+                    <li className="nav-item">
+                        <a className="nav-link" href="/#">Cart</a>
+                    </li>
                 </ul>
 
                      {/* <form class="d-flex" role="search">
