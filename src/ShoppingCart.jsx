@@ -13,15 +13,31 @@ export default class ShoppingCart extends Component
             {id:6, productName: "Cat Toy", price: 10, quantity: 20}
         ],
     };
-
+// I think the error might be in here, CHECK before you move ons
     render() {
-        return <div className="container-fluid">
+        return ( 
+            <div className="container-fluid">
             <h4>Shopping Cart</h4>
+
             <div className="row">
                 {this.state.products.map((prod) => {
-                    return <Product key={prod.id} id={prod.id} productName={prod.productName} price={prod.price} />;
+                    return (
+                    <Product key={prod.id} product={prod}>
+                    <button className="btn btn-primary">Buy Now</button>
+                    </Product>
+                );
                 })}
             </div>
-            </div>;
-     };
+        </div>
+     );
     }
+
+    //render ends here
+
+    //increment for the + and - buttons
+
+    handleIncrement = () => {
+
+    };
+}
+
