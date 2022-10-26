@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 
 // using picsum as temporary spaceholder for animal photos, using customer information as placeholder, will need to add to SQL, hardcoding is temporary
+//customers should be in the database
+
 export default class CustomersList
 extends Component
 {
     state={ 
-        pageTitle: "Customers", 
-        customersCount: 5,
+        pageTitle: "Pet Parents", 
+        // customersCount: 5,
         customers: [
-            {id:1, name: "Emily", phone: "123-1234", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1010/60"},
-            {id:2, name: "Forest", phone: "234-5678", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1011/60"},
-            {id:3, name: "Shanisse", phone: "345-6789", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1012/60"},
-            {id:4, name: "Taylor", phone: null, address: { city: "Richmond" }, photo:"https://picsum.photos/id/1013/60"},
-            {id:5, name: "Savannah", phone: "102-9384", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1014/60"},
+            {id:1, name: "Emily", phone: "123-1234", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1010/60", pet: "Amaretti"},
+            {id:2, name: "Forest", phone: "234-5678", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1011/60", pet: "Iroh"},
+            {id:3, name: "Shanisse", phone: "345-6789", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1012/60", pet: "Samwise"},
+            {id:4, name: "Taylor", phone: null, address: { city: "Richmond" }, photo:"https://picsum.photos/id/1013/60", pet: "Eta"},
+            {id:5, name: "Savannah", phone: "102-9384", address: { city: "Richmond" }, photo:"https://picsum.photos/id/1014/60", pet: "Hiro"},
         ]
     };
     render()
@@ -33,6 +35,7 @@ extends Component
                         <th>Customer Name</th>
                         <th>Phone</th>
                         <th>Address</th>
+                        <th>Pet</th>
                     </tr>
                 </thead>
                     <tbody>{this.getCustomerRow()}</tbody>
@@ -40,10 +43,9 @@ extends Component
         </div>;
     }
     // executes when refresh button is clicked - doesn't currently work
-    onRefreshClick = () => {
-        this.setState({
-            customersCount: 7});
-    };
+    // onRefreshClick = () => {
+    //     this.setState();
+    // };
 
     getPhoneToRender = (phone) => {
         if(phone)
@@ -57,7 +59,7 @@ extends Component
        return (this.state.customers.map((cust, index) => {
             return (
                 <tr key={cust.id}>
-                <td><img src={cust.photo} alt="Customer Photo" />
+                <td><img src={cust.photo} alt="Customer" />
                 <div>
                     <button className="btn btn-sm btn-secondary" onClick={() => {this.onChangePictureClick(cust, index);}}>Change Image</button>
                 </div>

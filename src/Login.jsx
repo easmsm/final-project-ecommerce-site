@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+//need to update with validation, SQL tie-ins
+
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
