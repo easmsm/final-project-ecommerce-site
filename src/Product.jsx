@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
-export default class Product extends Component 
-    {
-        state={
-            id: this.props.product.id,
-            productName: this.props.product.productName,
-            price: this.props.product.price,
+export default class Product extends Component {
+    constructor(props){
+        super(props);
+
+        console.log("Constructor - Product");
+        this.state={
+           product: this.props.product,
         };
+    }
     
     render() {
         
@@ -50,5 +52,18 @@ export default class Product extends Component
         </div>
     </div>
     );
+   }
+
+   componentDidMount() {
+       console.log("componentDidMount - Product")
+   }
+
+   componentDidUpdate() {
+        console.log("componentDidUpdate - Product")
+    }
+
+   //executes when the current instance of current component is being deleted from memory
+   componentWillUnmount() {
+       console.log("componentWillUnmount - Product")
    }
   }

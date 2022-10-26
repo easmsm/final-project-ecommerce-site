@@ -10,11 +10,11 @@ export default class ShoppingCart extends Component {
      this.state = {
         products:[
             {id:1, productName: "Dog Boarding", price: 100, quantity: 20},
-            {id:2, productName: "Cat Boarding", price: 100, quantity: 20},
-            {id:3, productName: "Dog Grooming", price: 50, quantity: 20},
-            {id:4, productName: "Cat Grooming", price: 50, quantity: 20},
-            {id:5, productName: "Dog Toy", price: 10, quantity: 20},
-            {id:6, productName: "Cat Toy", price: 10, quantity: 20}
+            // {id:2, productName: "Cat Boarding", price: 100, quantity: 20},
+            // {id:3, productName: "Dog Grooming", price: 50, quantity: 20},
+            // {id:4, productName: "Cat Grooming", price: 50, quantity: 20},
+            // {id:5, productName: "Dog Toy", price: 10, quantity: 20},
+            // {id:6, productName: "Cat Toy", price: 10, quantity: 20}
         ],
     };
     }
@@ -52,7 +52,7 @@ export default class ShoppingCart extends Component {
     }
 
     componentDidUpdate(prevProps,prevState) {
-        console.log("componentDidUpdate",
+        console.log("componentDidUpdate - ShoppingCart",
         prevProps,
         prevState, 
         this.props, 
@@ -60,10 +60,25 @@ export default class ShoppingCart extends Component {
         );
 
     
-    if(prevProps.x != this.props.x) {
-        //make http call
+    // if(prevProps.x !== this.props.x) {
+    //     //make http call
+    // }
+    // };
+
+    //executes when the current instance of current component is being deleted from memory
+    componentWillUnmount(){
+        console.log("componentWillUnmount - ShoppingCart")
     }
-    };
+    
+    componentDidCatch(error,info) {
+        console.log("componetWillUnmount - ShoppingCar");
+        console.log(error,info);
+
+        localStorage.lastError = `${error}\n${JSON.stringify(info)}`;
+    }
+    //executes when the user clicks
+    
+
 
 
     //increment for the + and - buttons
