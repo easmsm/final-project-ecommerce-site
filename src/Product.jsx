@@ -4,7 +4,9 @@ export default class Product extends Component {
     constructor(props){
         super(props);
 
-        console.log("Constructor - Product");
+        // console.log("Constructor - Product");
+
+
         this.state={
            product: this.props.product,
         };
@@ -55,15 +57,15 @@ export default class Product extends Component {
    }
 
    componentDidMount() {
-       console.log("componentDidMount - Product")
+    //    console.log("componentDidMount - Product")
    }
 
    componentDidUpdate() {
-        console.log("componentDidUpdate - Product")
+        // console.log("componentDidUpdate - Product")
     }
 
    //executes when the current instance of current component is being deleted from memory
    componentWillUnmount() {
-       console.log("componentWillUnmount - Product")
+    //    console.log("componentWillUnmount - Product")
    }
   }
