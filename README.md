@@ -11,9 +11,12 @@ npm install bootstrap jquery popper
 might need to install popper w/ npm install @popperjs/core --save
 
 npm install font-awesome --save
+npm install express --save
 
 custom name styles (maybe to signify dog/cat at 2:20)
 
 -want to add an inactive option for customers, allow to delete customers
 -remove refresh option that adds a count
 -section for animals that mimics customers and connects each customer to their animal (each customer can have more than one animal, each animal has one customer)
+
+-haven't done any work to set up server

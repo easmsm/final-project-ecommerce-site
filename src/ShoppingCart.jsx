@@ -7,118 +7,127 @@ export default class ShoppingCart extends Component {
         super(props);//calling super class constructor to prevent error with this.state
 
      //initialization of the state
+     //this should all be called from the server
      this.state = {
         products:[
             {id:1, productName: "Dog Boarding", price: 100, quantity: 20},
-            // {id:2, productName: "Cat Boarding", price: 100, quantity: 20},
-            // {id:3, productName: "Dog Grooming", price: 50, quantity: 20},
-            // {id:4, productName: "Cat Grooming", price: 50, quantity: 20},
-            // {id:5, productName: "Dog Toy", price: 10, quantity: 20},
-            // {id:6, productName: "Cat Toy", price: 10, quantity: 20}
+            {id:2, productName: "Cat Boarding", price: 100, quantity: 20},
+            {id:3, productName: "Dog Grooming", price: 50, quantity: 20},
+            {id:4, productName: "Cat Grooming", price: 50, quantity: 20},
+            {id:5, productName: "Dog Toy", price: 10, quantity: 20},
+            {id:6, productName: "Cat Toy", price: 10, quantity: 20}
         ],
     };
     }
 
     render() {
-        return ( 
-            <div className="container-fluid">
+        //console.log("render - ShoppingCart");
+    
+        return (
+          <div>
             <h4>Shopping Cart</h4>
-
+    
             <div className="row">
-                {this.state.products.map((prod) => {
-                    return (
-                    <Product 
-                    key={prod.id} 
+              {this.state.products.map((prod) => {
+                return (
+                  <Product
+                    key={prod.id}
                     product={prod}
                     onIncrement={this.handleIncrement}
                     onDecrement={this.handleDecrement}
                     onDelete={this.handleDelete}
-                    >
-
+                  >
                     <button className="btn btn-primary">Buy Now</button>
-                    </Product>
+                  </Product>
                 );
-                })}
+              })}
             </div>
-        </div>
-     );
-    }
-
-    //render ends here
-
-    //executes after constructor and render method (includes life cycle of child components, if any) of current component
-    componentDidMount() {
-        //fetch data from data source
-    }
-
-    componentDidUpdate(prevProps,prevState) {
-        console.log("componentDidUpdate - ShoppingCart",
-        prevProps,
-        prevState, 
-        this.props, 
-        this.state
+          </div>
         );
-
+      }
+      // render ends here
     
-    // if(prevProps.x !== this.props.x) {
-    //     //make http call
-    // }
-    // };
-
-    //executes when the current instance of current component is being deleted from memory
-    componentWillUnmount(){
-        console.log("componentWillUnmount - ShoppingCart")
-    }
+      //Executes after constructor and render method (includes life cycle of child components, if any) of current component
+      componentDidMount = async () => {
+        //send request to server
+        var response = await fetch("http://localhost:5000/products", {
+          method: "GET",
+        });
     
-    componentDidCatch(error,info) {
-        console.log("componetDidCatch - ShoppingCar");
-        console.log(error,info);
-
+        //the following code executes after receiving response from server
+        //converting the response body into a JS object array
+        var prods = await response.json();
+    
+        //the following code executes after converting response body into JS object array
+        console.log(prods);
+    
+        //updating products into component's state
+        this.setState({ products: prods });
+    
+        //console.log("componentDidMount - ShoppingCart");
+      };
+    
+      componentDidUpdate(prevProps, prevState) {
+        /*console.log(
+          "componentDidUpdate - ShoppingCart",
+          prevProps,
+          prevState,
+          this.props,
+          this.state
+        );*/
+        // if (prevProps.x != this.props.x) {
+        //   //make http call
+        // }
+      }
+    
+      //Executes when the current instance of current component is being deleted from memory
+      componentWillUnmount() {
+      }
+    
+      componentDidCatch(error, info) {
         localStorage.lastError = `${error}\n${JSON.stringify(info)}`;
-    }
-    //executes when the user clicks
+      }
     
-
-
-
-    //increment for the + and - buttons
-    handleIncrement = (product, maxValue) => {
-        //get index of the selected product
+      //executes when the user clicks on + button.
+      handleIncrement = (product, maxValue) => {
+        //get index of selected product
         let allProducts = [...this.state.products];
         let index = allProducts.indexOf(product);
-        
-        if(allProducts[index].quantity<=maxValue){
-            allProducts[index].quantity++;
-            //update the state of the current component
-            this.setState({products:allProducts});
+    
+        if (allProducts[index].quantity < maxValue) {
+          allProducts[index].quantity++;
+    
+          //update the state of current component (parent component)
+          this.setState({ products: allProducts });
         }
-    };
-
-    handleDecrement = (product, minValue) => {
-        //get index of the selected product
+      };
+    
+      //executes when the user clicks on - button.
+      handleDecrement = (product, minValue) => {
+        //get index of selected product
         let allProducts = [...this.state.products];
         let index = allProducts.indexOf(product);
-
-        if(allProducts[index].quantity>minValue){
-            allProducts[index].quantity--;
-            //update the state of the current component
-            this.setState({products:allProducts});
+    
+        if (allProducts[index].quantity > minValue) {
+          allProducts[index].quantity--;
+    
+          //update the state of current component (parent component)
+          this.setState({ products: allProducts });
         }
-    };
-
-    //executes when the user clicks on Delete button
-    handleDelete=(product) => {
+      };
+    
+      //executes when the user clicks on Delete (X) button in the Product component.
+      handleDelete = (product) => {
+        //get index of selected product
         let allProducts = [...this.state.products];
         let index = allProducts.indexOf(product);
-
-        if(window.confirm("Are you sure you want to delete this item?")) {
-            //delete product based on index
-        allProducts.splice(index,1);
-
-        //update the state of the current component
-        this.setState({products:allProducts});
+    
+        if (window.confirm("Are you sure to delete?")) {
+          //delete product based on index
+          allProducts.splice(index, 1);
+    
+          //update the state of current component (parent component)
+          this.setState({ products: allProducts });
         }
       };
     }
-
-
