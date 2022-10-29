@@ -42,7 +42,7 @@ type Mutation {
     login(email: String!, password: String!): Auth
     addUser(userName: String!, email: String!, password: String!): Auth
     addPet(petName: String!, type: String!, breed: String!): Pet
-    addProduct(productName: String!, type: String!, description: String!, price: Int!, quantity: Int!): Product
+    addProduct(productName: String!, type: String!, description: String!, price: Float!, quantity: Int!): Product
 }
 type Auth {
     token: ID!
