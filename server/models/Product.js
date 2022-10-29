@@ -6,18 +6,13 @@ const productSchema = new Schema(
       type: String,
       required: 'Please select an item!',
     },
-    type: {
-        type: String,
-        required: 'Dog or Cat?',
-        stars: String
-    },
     description: {
       type: String,
-      required: 'Please enter a description' 
+      required: true
     },
     price: {
       type: Number,
-      required: 'Please enter a valid price.',
+      required: true
     },
     quantity: {
         type: Number,

@@ -16,7 +16,7 @@ const petSchema = new Schema(
     },
     username: {
         type: String,
-        required: True
+        required: true
     }
   },
   {

@@ -25,7 +25,6 @@ type Pet {
 type Product {
     _id: ID
     productName: String
-    type: String
     description: String
     price: Float
     quantity: Int
@@ -36,13 +35,16 @@ type Query {
     customer: [User]
     users: [User]
     user(username: String!): User
-    products(username: String): [Product]
+    pets(username: String!): [Pet]
+    pet(_id: ID!): Pet
+    products: [Product]
+    product(_id: ID!): Product
 }
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(userName: String!, email: String!, password: String!): Auth
     addPet(petName: String!, type: String!, breed: String!): Pet
-    addProduct(productName: String!, type: String!, description: String!, price: Float!, quantity: Int!): Product
+    addProduct(productName: String!, description: String!, price: Float!, quantity: Int!): Product
 }
 type Auth {
     token: ID!
