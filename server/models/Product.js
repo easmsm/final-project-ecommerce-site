@@ -1,8 +1,8 @@
 const { Schema, model } = require('mongoose');
 
-const itemSchema = new Schema(
+const productSchema = new Schema(
   {
-    itemName: {
+    productName: {
       type: String,
       required: 'Please select an item!',
     },
@@ -40,6 +40,6 @@ const itemSchema = new Schema(
 //   return this.reactions.length;
 // });
 
-const Item = model('Item', itemSchema);
+const Product = model('Product', productSchema);
 
-module.exports = Item;
+module.exports = Product;
