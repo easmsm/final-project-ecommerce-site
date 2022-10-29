@@ -14,9 +14,9 @@ const petSchema = new Schema(
       type: String,
       required: 'Please enter breed of your pet.'
     },
-    parent: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
+    username: {
+        type: String,
+        required: True
     }
   },
   {

@@ -8,7 +8,8 @@ const productSchema = new Schema(
     },
     type: {
         type: String,
-        required: 'Dog or Cat?'
+        required: 'Dog or Cat?',
+        stars: String
     },
     description: {
       type: String,
@@ -17,12 +18,12 @@ const productSchema = new Schema(
     price: {
       type: Number,
       required: 'Please enter a valid price.',
-      decimal: true
     },
     quantity: {
         type: Number,
         minLength: 0,
         maxLength: 20,
+        required: true,
         validate: {
             validator: Number.isInteger,
             message: 'Value must be a number!'

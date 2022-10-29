@@ -30,16 +30,18 @@ const userSchema = new Schema(
         type: String,
         required: true
     },
-    petName: {
-        type: String,
-        required: true
-    },
-    // pets: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Pet'
-    //   }
-    // ],
+    pets: [
+        {
+        type: Schema.Types.ObjectId,
+        ref: 'Pet'
+        },
+    ],
+    products: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
+      }
+    ],
   },
   {
     toJSON: {
@@ -63,9 +65,14 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
-// might use this
-// userSchema.virtual('petCount').get(function() {
+// might use this for pet count
+// userSchema.virtual('petCount').get(function() {}
 //   return this.pets.length;
+// });
+
+// might use this for product count
+// userSchema.virtual('productCount').get(function() {
+//   return this.products.length;
 // });
 
 const User = model('User', userSchema);
