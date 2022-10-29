@@ -43,8 +43,8 @@ type Query {
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(userName: String!, email: String!, password: String!): Auth
-    addPet(petName: String!, type: String!, breed: String!): Pet
-    addProduct(productName: String!, description: String!, price: Float!, quantity: Int!): Product
+    addPet(petName: String!): Pet
+    addProduct(productName: String!): Product
 }
 type Auth {
     token: ID!
