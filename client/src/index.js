@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDom from "react-dom";
+import ReactDOM from 'react-dom';
 import "jquery";
 import "popper.js/dist/umd/popper";
 import "bootstrap/dist/js/bootstrap";
@@ -8,4 +8,9 @@ import App from "./App";
 import "./index.css";
 import "font-awesome/css/font-awesome.css";
 
-ReactDom.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
