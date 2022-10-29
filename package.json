@@ -22,7 +22,7 @@
     "popper.js": "^1.16.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -49,5 +49,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "https://babeljs.io/",
+  "main": "index.js",
+  "devDependencies": {
+    "mocha": "^10.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easmsm/final-project-ecommerce-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/easmsm/final-project-ecommerce-site/issues"
+  },
+  "homepage": "https://github.com/easmsm/final-project-ecommerce-site#readme"
 }

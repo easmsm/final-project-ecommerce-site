@@ -8,6 +8,7 @@ import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import NoMatchPage from "./NoMatchPage";
 
+//npm install react-router-dom@5.2.0
 export default class App extends Component {
   render() {
     return (
