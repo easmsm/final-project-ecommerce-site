@@ -42,7 +42,6 @@ export const QUERY_ME = gql`
         productName
       }
     }
-  }
 }
 `;
 
