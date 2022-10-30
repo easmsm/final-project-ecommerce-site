@@ -43,6 +43,7 @@ export const QUERY_ME = gql`
       }
     }
   }
+}
 `;
 
 export const QUERY_PRODUCTS = gql`
@@ -58,12 +59,26 @@ export const QUERY_PRODUCTS = gql`
 `;
 
 export const QUERY_PETS = gql`
-  query pets($petName: String!) {
-    pets(petName: $petName) {
+  query pets($username: String!) {
+    pets(username: $username) {
         _id
         petName
         type
         breed
+        username
+    }
+  }
+
+`;
+
+export const QUERY_PET = gql`
+  query pets($id: ID!) {
+    pets(_id: $id) {
+        _id
+        petName
+        type
+        breed
+        username
     }
   }
 

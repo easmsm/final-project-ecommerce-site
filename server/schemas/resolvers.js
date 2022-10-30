@@ -93,19 +93,32 @@ const resolvers = {
           
             throw new AuthenticationError('You need to be logged in!');
           },
-          addProduct: async (parent, { userId, productName }, context) => {
+          addProduct: async (parent, { productId }, context) => {
             if (context.user) {
               const updatedUser = await User.findOneAndUpdate(
-                { _id: userId },
-                { $push: { products: { productName, username: context.user.username } } },
-                { new: true, runValidators: true }
-              );
+                { _id: context.user._id },
+                { $addToSet: { products: productId } },
+                { new: true }
+              ).populate('products');
           
               return updatedUser;
             }
           
             throw new AuthenticationError('You need to be logged in!');
-          },
+          }
+        //   addProduct: async (parent, { userId, productName }, context) => {
+        //     if (context.user) {
+        //       const updatedUser = await User.findOneAndUpdate(
+        //         { _id: userId },
+        //         { $push: { products: { productName, username: context.user.username } } },
+        //         { new: true, runValidators: true }
+        //       );
+          
+        //       return updatedUser;
+        //     }
+          
+        //     throw new AuthenticationError('You need to be logged in!');
+        //   },
     //       addProduct: async (parent, { userId, productName }, context) => {
     //     if (context.user) {
     //       const updatedUser = await User.findOneAndUpdate(
@@ -122,12 +135,6 @@ const resolvers = {
 
 
     }
-
-
-
-
-
-
 
 }
 

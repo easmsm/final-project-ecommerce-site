@@ -31,8 +31,18 @@ const userSchema = new Schema(
         type: String,
         
     },
-    pets: [petSchema],
-    products: [productSchema]
+    pets: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Pet'
+        }
+    ],
+    products: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    ]
   },
   {
     toJSON: {
@@ -57,9 +67,9 @@ userSchema.methods.isCorrectPassword = async function(password) {
 };
 
 // might use this for pet count
-// userSchema.virtual('petCount').get(function() {}
-//   return this.pets.length;
-// });
+userSchema.virtual('petCount').get(function() {
+  return this.pets.length;
+});
 
 // might use this for product count
 // userSchema.virtual('productCount').get(function() {
