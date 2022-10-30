@@ -46,7 +46,7 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_PRODUCTS = gql`
-  query products($productName: String) {
+  query products($productName: String!) {
     products(productName: $productName) {
       _id
       productName
@@ -58,13 +58,12 @@ export const QUERY_PRODUCTS = gql`
 `;
 
 export const QUERY_PETS = gql`
-  query pets($petName: String) {
+  query pets($petName: String!) {
     pets(petName: $petName) {
         _id
         petName
         type
         breed
-        username
     }
   }
 

@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const productSchema = require('./Product');
+const petSchema = require('./Pet')
 
 const userSchema = new Schema(
   {
@@ -22,26 +24,15 @@ const userSchema = new Schema(
     },
     phone: {
         type: String,
-        required: true,
         match: [/^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/, 'Must enter a valid phone number!']
 
     },
     address: {
         type: String,
-        required: true
+        
     },
-    pets: [
-        {
-        type: Schema.Types.ObjectId,
-        ref: 'Pet'
-        },
-    ],
-    products: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Product'
-      }
-    ],
+    pets: [petSchema],
+    products: [productSchema]
   },
   {
     toJSON: {

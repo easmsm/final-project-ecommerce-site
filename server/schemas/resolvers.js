@@ -32,9 +32,8 @@ const resolvers = {
          .populate('products');
        },
        // get all pets
-      pets: async (parent, { username }) => {
-        const params = username ? { username } : {};
-        return Pet.find(params)
+      pets: async () => {
+        return Pet.find()
       },
       // get one pet by ID
       pet: async (parent, { _id }) => {
@@ -95,18 +94,31 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
           },
           addProduct: async (parent, { userId, productName }, context) => {
-        if (context.user) {
-          const updatedUser = await User.findOneAndUpdate(
-            { _id: userId },
-            { $push: { products: { productName, username: context.user.username } } },
-            { new: true, runValidators: true }
-          );
+            if (context.user) {
+              const updatedUser = await User.findOneAndUpdate(
+                { _id: userId },
+                { $push: { products: { productName, username: context.user.username } } },
+                { new: true, runValidators: true }
+              );
+          
+              return updatedUser;
+            }
+          
+            throw new AuthenticationError('You need to be logged in!');
+          },
+    //       addProduct: async (parent, { userId, productName }, context) => {
+    //     if (context.user) {
+    //       const updatedUser = await User.findOneAndUpdate(
+    //         { _id: userId },
+    //         { $push: { products: { productName, username: context.user.username } } },
+    //         { new: true, runValidators: true }
+    //       );
       
-          return updatedUser;
-        }
+    //       return updatedUser;
+    //     }
       
-        throw new AuthenticationError('You need to be logged in!');
-      },
+    //     throw new AuthenticationError('You need to be logged in!');
+    //   },
 
 
     }

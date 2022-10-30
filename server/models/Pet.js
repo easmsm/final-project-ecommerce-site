@@ -14,10 +14,6 @@ const petSchema = new Schema(
       type: String,
       required: 'Please enter breed of your pet.'
     },
-    username: {
-        type: String,
-        required: true
-    }
   },
   {
     toJSON: {
@@ -30,6 +26,6 @@ const petSchema = new Schema(
 //   return this.reactions.length;
 // });
 
-const Pet = model('Pet', petSchema);
+// const Pet = model('Pet', petSchema);
 
-module.exports = Pet;
+module.exports = petSchema;

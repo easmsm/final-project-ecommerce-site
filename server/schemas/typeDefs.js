@@ -12,7 +12,7 @@ type User {
     email: String
     phone: String
     address: String
-    petName: String
+    pets: [Pet]
     products: [Product]
 }
 type Pet {
@@ -20,7 +20,7 @@ type Pet {
     petName: String
     type: String
     breed: String
-    parent: User
+    
 }
 type Product {
     _id: ID
@@ -35,16 +35,16 @@ type Query {
     customer: [User]
     users: [User]
     user(username: String!): User
-    pets(username: String!): [Pet]
+    pets: [Pet]
     pet(_id: ID!): Pet
     products: [Product]
     product(_id: ID!): Product
 }
 type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(userName: String!, email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     addPet(petName: String!): Pet
-    addProduct(productName: String!): Product
+    addProduct(userId: ID!, productName: String!): Product
 }
 type Auth {
     token: ID!
