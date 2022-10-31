@@ -1,45 +1,58 @@
-import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
+import Auth from './utils/auth';
 
 //need to add NavBar links
 //need to update from bootstrap
 
-class NavBar extends Component{
-    render(){
-        return (
-        <React.Fragment>
-            <nav className="navbar navbar-expand-lg bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="/#">Pet Shop</a>
-                    
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="/#">Home</a>
-                    </li>
-
-                    <li className="nav-item">
-                        <a className="nav-link" href="/#">Services</a>
-                    </li>
-
-                    <li className="nav-item">
-                        <a className="nav-link" href="/#">Products</a>
-                    </li>
-
-                    <li className="nav-item">
-                        <a className="nav-link" href="/#">Cart</a>
-                    </li>
-                </ul>
-                </div>
+const NavBar = () => {
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+      };
+    
+      return (
+        <nav className="navbar navbar-expand-lg bg-light">
+          <div className="container-fluid">
+          <Link to="/" className="navbar-brand">
+              Pet Shop
+            </Link>
+    
+        <nav className="text-center">
+            {Auth.loggedIn() ? (
+          <>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+            <Link to="/dashboard" className="nav-link active" aria-current="page">Me</Link>
+            </li>
+            <li className="nav-item">
+            <Link to="/product" className="nav-link">Services</Link>
+            </li>
+          <a href="/"className="nav-link" onClick={logout}>
+            Logout
+          </a>
+          </ul>
+          </div>
+        </>
+      ) : (
+        <>  <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link to="/login" className="nav-link active" aria-current="page">Login/Signup</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/product" className="nav-link">Services</Link>
+            </li>
+            </ul>
             </div>
+              </>
+            
+          )}
         </nav>
-        </React.Fragment>
-        );
-    }
+          </div>
+        </nav>
+      );
 }
 
 export default NavBar;

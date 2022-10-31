@@ -6,6 +6,8 @@ import Signup from "./Signup";
 import SinglePet from './SinglePet';
 import ShoppingCart from "./ShoppingCart";
 import CustomersList from "./CustomersList";
+import Product from "./Product";
+import Home from './Home';
 import { setContext } from '@apollo/client/link/context';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -39,8 +41,10 @@ function App() {
           <NavBar />
           <div className="container-fluid">
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/product" element={<Product />} />
               <Route path="/dashboard">
                 <Route path=":username" element={<Dashboard />} />
                 <Route path="" element={<Dashboard />} />
