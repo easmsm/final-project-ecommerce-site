@@ -33,7 +33,6 @@ type Product {
 }
 type Query {
     me: User
-    customer: [User]
     users: [User]
     user(username: String!): User
     pets(username: String): [Pet]
