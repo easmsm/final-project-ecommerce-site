@@ -26,6 +26,7 @@ const Product = () => {
                   <span>Description:</span><p>{product.description}</p>
                   <span>Price:</span><p>{product.price}</p>
                   <span>Quantity:</span><p>{product.quantity}</p>
+                  <button>Select Service/Product</button>
                 </div>
               ))}
           </>
