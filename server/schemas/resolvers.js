@@ -41,7 +41,7 @@ const resolvers = {
       },
       // get all products
       products: async () => {
-        return Product.find()
+        return await Product.find()
       },
       // get one product by ID
       product: async (parent, { _id }) => {
@@ -93,18 +93,16 @@ const resolvers = {
           
             throw new AuthenticationError('You need to be logged in!');
           },
-          addProduct: async (parent, { productId }, context) => {
-            if (context.user) {
-              const updatedUser = await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { products: productId } },
-                { new: true }
-              ).populate('products');
+          addProduct: async (parent, {productName, description, price, quantity}, context) => {
+              const product = await Product.create(
+                  {productName, description, price, quantity}
+              
+                )
           
-              return updatedUser;
-            }
+              return product;
+            
           
-            throw new AuthenticationError('You need to be logged in!');
+
           }
         //   addProduct: async (parent, { userId, productName }, context) => {
         //     if (context.user) {

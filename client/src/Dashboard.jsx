@@ -3,7 +3,7 @@ import { Navigate, useParams } from 'react-router-dom';
 import PetList from './PetList';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from './utils/queries';
-// import ProductList from '../components/FriendList';
+// import ProductList from '../components/ProductList';
 import PetForm from './PetForm';
 // import { ADD_PRODUCT } from './utils/mutations';
 import Auth from './utils/auth';

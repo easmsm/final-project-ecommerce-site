@@ -46,8 +46,8 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_PRODUCTS = gql`
-  query products($productName: String!) {
-    products(productName: $productName) {
+  query products {
+    products {
       _id
       productName
       description

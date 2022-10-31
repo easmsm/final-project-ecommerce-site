@@ -21,3 +21,16 @@
 .hand-icon{
     cursor: pointer
 }
+
+
+
+/* Products Page */
+#myProducts {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#productName {
+    color: 'red';
+    font-size: 25px;
+}
