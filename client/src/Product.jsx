@@ -24,7 +24,7 @@ const Product = () => {
                 <div id='myProducts'>
                   <p id='productName'>{product.productName}</p>
                   <span>Description:</span><p>{product.description}</p>
-                  <span>Price:</span><p>{product.price}</p>
+                  <span>Price:</span><p>${product.price}.00</p>
                   <span>Quantity:</span><p>{product.quantity}</p>
                   <button>Select Service/Product</button>
                 </div>
