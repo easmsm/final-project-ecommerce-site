@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from 'react';
 
-export default class NoMatchPage extends Component {
-  render() {
+const NoMatch = () => {
     return (
       <div>
         <h4>Page not found</h4>
       </div>
     );
-  }
-}
+  
+};
+
+export default NoMatch;

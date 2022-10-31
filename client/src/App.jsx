@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import Dashboard from "./Dashboard";
 import Login from "./Login";
 import Signup from "./Signup";
+import SinglePet from './SinglePet';
 import ShoppingCart from "./ShoppingCart";
 import CustomersList from "./CustomersList";
 import { setContext } from '@apollo/client/link/context';
@@ -39,14 +40,15 @@ function App() {
           <div className="container-fluid">
             <Routes>
               <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />}/>
+              <Route path="/signup" element={<Signup />} />
               <Route path="/dashboard">
-                <Route path=":username" element={<Dashboard/>} />
-                <Route path="" element={<Dashboard/>} />
+                <Route path=":username" element={<Dashboard />} />
+                <Route path="" element={<Dashboard />} />
               </Route>
-              <Route path="/customers" element={<CustomersList/>} />
-              <Route path="/cart" element={<ShoppingCart/>} />
-              <Route path="*" element={<NoMatchPage/>} />
+              <Route path="/pet/:id" element={<SinglePet />} />
+              <Route path="/customers" element={<CustomersList />} />
+              <Route path="/cart" element={<ShoppingCart />} />
+              <Route path="*" element={<NoMatchPage />} />
             </Routes>
           </div>
         </BrowserRouter>
