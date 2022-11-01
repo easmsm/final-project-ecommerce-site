@@ -6,7 +6,7 @@ For the final group project we wanted to develop an app that was fun, useful & s
 
 https://github.com/easmsm/final-project-ecommerce-site
 
-_______Heroku Link__________
+https://pet-store-fetss.herokuapp.com/
 
 
 ## Collaboration Credits
