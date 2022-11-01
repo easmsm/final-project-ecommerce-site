@@ -32,9 +32,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For more information visit https://opensource.org/licenses/MIT
 
 
+![homepagepetshop](https://user-images.githubusercontent.com/104907412/199356004-279cc90a-cb7a-483e-9c7e-c853992d5079.png)
+![dashboardpetshop](https://user-images.githubusercontent.com/104907412/199356022-b4eb3c49-3288-43d9-935b-dc8a7dea7edb.png)
+![servicespetshop](https://user-images.githubusercontent.com/104907412/199356027-07e69e0f-4d39-4d49-b933-d3c5ade38da2.png)
 
-
-
+*ALL SCREENSHOTS OF APP ARE BEFORE ANY STYLING*
 
 ### Emily's Process Notes:
 
