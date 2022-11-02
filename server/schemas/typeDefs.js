@@ -36,14 +36,14 @@ type Query {
     users: [User]
     user(username: String!): User
     pets(username: String): [Pet]
-    pet(_id: ID!): Pet
+    pet(_id: ID): Pet
     products: [Product!]
     product(_id: ID!): Product
 }
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addPet(userId: ID!, petName: String!, type: String!, breed: String!): Pet
+    addPet( petName: String!, type: String!, breed: String!): Pet
     addProduct( productName: String!, description: String!, price: Float!, quantity: Int!): Product
 }
 type Auth {

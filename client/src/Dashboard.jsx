@@ -72,8 +72,8 @@ const Profile = () => {
       {/* only show pet form to user on their dashboard */}
       <div className="mb-3">{!userParam && <PetForm />}</div>
     </div>
-  );
-};
+    );
+  };
 
 export default Profile;
 

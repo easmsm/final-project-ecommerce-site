@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_PET } from './utils/queries';
-// import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
+// import Auth from './utils/auth';
 
 const SinglePet = props => {
 
@@ -13,24 +14,27 @@ const SinglePet = props => {
       variables: { id: petId }
     });
     
-    const pet = data?.thought || {};
+    const pet = data?.pet || {};
     
     if (loading) {
       return <div>Loading...</div>;
     }
 
   return (
+    
     <div>
+      <h1>{pet.petName}</h1>
       <div className="card mb-3">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {pet.username}
-          </span>{' '}
+          </span>
         </p>
         <div className="card-body">
-          <p>{pet.petName}</p>
-          <p>{pet.type}</p>
-          <p>{pet.breed}</p>
+         <span>Name:</span> <p>{pet.petName}</p>
+          <span>Type:</span><p>{pet.type}</p>
+          <span>Breed:</span><p>{pet.breed}</p>
+          <Link to="/product" ><button>Go to Products/Services</button></Link>
         </div>
       </div>
     </div>

@@ -20,6 +20,7 @@ const Product = () => {
     
         return (
            <>
+              <h1>Products/Services</h1>
               {productData.map((product) => (
                 <div id='myProducts'>
                   <p id='productName'>{product.productName}</p>

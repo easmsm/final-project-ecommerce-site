@@ -71,8 +71,8 @@ export const QUERY_PETS = gql`
 `;
 
 export const QUERY_PET = gql`
-  query pets($id: ID!) {
-    pets(_id: $id) {
+  query pet($id: ID!) {
+    pet(_id: $id) {
         _id
         petName
         type

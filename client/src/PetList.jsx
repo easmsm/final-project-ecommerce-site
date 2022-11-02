@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const PetList = ({ pets }) => {
+const PetList = ({ pets, title }) => {
 
   if (!pets.length) {
     return <h3>No Pets Yet</h3>;
@@ -10,7 +10,7 @@ const PetList = ({ pets }) => {
 
   return (
     <div>
-      <h3>Your Pets!</h3>
+      <h3>{title}</h3>
       {pets &&
         pets.map(pet => (
           <div key={pet._id} className="card mb-3">
@@ -21,7 +21,7 @@ const PetList = ({ pets }) => {
                 className="text-light"
             >
                 {pet.username}
-            </Link>{' '}
+            </Link>{''}
             </p>
             <div className="card-body">
             <Link to={`/pet/${pet._id}`}>
