@@ -92,8 +92,9 @@ const handleChangeBreed = event => {
   return (
     <div>
       {/* condition <p> element to count characters and send  error if text is empty or over 20 limit */}
+      <span>(20) max characters</span>
       <p className={`m-0 ${characterCount === 20 ? 'text-error' : ''}`}>
-         Character Count: {characterCount}/20
+         Character Count: {characterCount}/20 
       </p>
       <form className="flex-row justify-center justify-space-between-md align-stretch"
          onSubmit={handleFormSubmit} 
