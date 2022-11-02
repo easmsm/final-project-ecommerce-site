@@ -92,6 +92,7 @@ const handleChangeBreed = event => {
   return (
     <div>
       {/* condition <p> element to count characters and send  error if text is empty or over 20 limit */}
+      <span>(20) characters per input max!</span>
       <p className={`m-0 ${characterCount === 20 ? 'text-error' : ''}`}>
          Character Count: {characterCount}/20
       </p>
