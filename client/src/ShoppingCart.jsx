@@ -1,3 +1,4 @@
+// THIS PAGE NOT ACTIVE COULD BE USED FOR FUTURE DEVELOPMENT
 import React, { Component } from "react";
 import Product from "./Product";
 

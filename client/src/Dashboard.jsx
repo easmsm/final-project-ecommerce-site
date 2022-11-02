@@ -16,6 +16,7 @@ const Profile = () => {
     variables: { username: userParam }
   });
   
+  // future reference to add product
   // const [addProduct] = useMutation(ADD_PRODUCT);
 
   const user = data?.me || data?.user || {};
@@ -38,6 +39,7 @@ const Profile = () => {
     );
   }
 
+  //future reference to add product
   // const handleClick = async () => {
   //   try {
   //     await addProduct({
@@ -61,6 +63,7 @@ const Profile = () => {
         <PetList pets={user.pets} title={`${user.username}'s pets...`} />
         </div>
 
+        {/* maybe use this in the future */}
         {/* <div className="col-12 col-lg-3 mb-3">
         <ProductList
             username={user.username}
@@ -68,6 +71,7 @@ const Profile = () => {
             products={user.products}
           />
         </div> */}
+
       </div>
       {/* only show pet form to user on their dashboard */}
       <div className="mb-3">{!userParam && <PetForm />}</div>

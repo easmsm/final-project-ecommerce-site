@@ -1,3 +1,4 @@
+// THIS PAGE NOT ACTIVE, COULD BE USED FOR FUTURE DEVELOPMENT
 import React, { Component } from "react";
 
 // using picsum as temporary spaceholder for animal photos, using customer information as placeholder, will need to add to SQL, hardcoding is temporary
