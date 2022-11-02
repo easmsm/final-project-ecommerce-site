@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 847d001da51724f72d3a5b7dd53edb973e84c064
 # pet-store
 
 For the final group project we wanted to develop an app that was fun, useful & stayed true to our interests. We created an app for pet lovers far & wide! Our app, Pet Store, allows the user to pick their favorite products & services for their dog or cat. The user can add things like a grooming session for their pup or a boarding session for their cat. They can also save their pet in our database so that way the next time they log in, their pet is in there & all they have to do is add their services to the cart & check out! Also a feature in development is access to our calendar for those services & a button/box to request a certain day/time. We created this app using many technologies, the main ones being MERN, MongoDB & GraphSQL. 
